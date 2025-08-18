@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mytrya AI - Transform Your Business with Intelligent Automation</title>
+    <meta name="description" content="Mytrya AI delivers custom AI solutions that streamline operations, reduce costs, and accelerate growth for forward-thinking businesses.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --ocean-light: #87CEEB;
+            --ocean-blue: #4A90E2;
+            --ocean-deep: #1E3A8A;
+            --ocean-dark: #0F172A;
+            --wave-foam: #F0F9FF;
+            --sea-mist: #E0F2FE;
+            --light-gray: #F8FAFC;
+            --medium-gray: #64748B;
+            --dark-gray: #334155;
+            --white: #FFFFFF;
+            --ocean-gradient: linear-gradient(135deg, var(--ocean-light) 0%, var(--ocean-blue) 50%, var(--ocean-deep) 100%);
+            --wave-gradient: linear-gradient(90deg, var(--ocean-light) 0%, var(--ocean-blue) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--ocean-dark);
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--ocean-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--ocean-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--ocean-gradient);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(74, 144, 226, 0.4);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark-gray);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--wave-foam) 0%, var(--sea-mist) 50%, var(--light-gray) 100%);
+            padding: 120px 0 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--ocean-deep);
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--ocean-gradient);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--ocean-deep);
+            padding: 15px 30px;
+            border: 2px solid var(--ocean-blue);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--ocean-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            border-radius: 20px;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active,
+        .dot:hover {
+            background: var(--ocean-blue);
+            transform: scale(1.2);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--white);
+            padding: 60px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--ocean-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--ocean-deep);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .journey-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: left;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--ocean-gradient);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--ocean-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .step-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--ocean-deep);
+        }
+
+        .step-card p {
+            color: var(--medium-gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .step-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .step-features li {
+            padding: 8px 0;
+            color: var(--medium-gray);
+            position: relative;
+            padding-left: 25px;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .step-features li:last-child {
+            border-bottom: none;
+        }
+
+        .step-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--ocean-blue);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border: 2px solid #e9ecef;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--ocean-blue);
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(74, 144, 226, 0.3);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--ocean-gradient);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--ocean-deep);
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--ocean-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            color: var(--medium-gray);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            color: var(--dark-gray);
+            position: relative;
+            padding-left: 30px;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--ocean-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Tools Showcase Section */
+        .tools-showcase {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .tools-scroll {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 60px 0 20px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tools-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tools-scroll {
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .tool-item {
+            min-width: 160px;
+            background: var(--white);
+            border: 2px solid #e9ecef;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .tool-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--ocean-blue);
+        }
+
+        .tool-item .tool-logo {
+            width: 70px;
+            height: 70px;
+            background: var(--light-gray);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover .tool-logo {
+            background: rgba(74, 144, 226, 0.1);
+        }
+
+        .tool-item .tool-logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+
+        .tool-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--ocean-deep);
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .tools-cta {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: var(--light-gray);
+            border-radius: 20px;
+        }
+
+        .tools-cta p {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+
+        /* Assessment Section */
+        .assessment {
+            padding: 100px 0;
+            background: var(--wave-foam);
+        }
+
+        .assessment-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .assessment-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--ocean-deep);
+        }
+
+        .assessment-text p {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .assessment-benefits {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .benefit-item i {
+            width: 50px;
+            height: 50px;
+            background: var(--ocean-gradient);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .benefit-item h4 {
+            font-weight: 600;
+            color: var(--ocean-deep);
+            margin-bottom: 5px;
+        }
+
+        .benefit-item p {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .assessment-cta {
+            text-align: center;
+        }
+
+        .assessment-note {
+            margin-top: 15px;
+            color: var(--ocean-blue);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .assessment-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .assessment-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .stat-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--ocean-gradient);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-circle:hover {
+            transform: scale(1.1);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--ocean-blue);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.1);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            background: var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--sea-mist);
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--ocean-deep);
+            margin: 0;
+        }
+
+        .faq-question i {
+            color: var(--ocean-blue);
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 25px 30px;
+        }
+
+        .faq-answer p {
+            color: var(--medium-gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--ocean-deep);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .about-feature i {
+            width: 50px;
+            height: 50px;
+            background: var(--ocean-gradient);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .about-feature div h4 {
+            font-weight: 600;
+            color: var(--ocean-deep);
+            margin-bottom: 5px;
+        }
+
+        .about-feature div p {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .about-visual {
+            height: 400px;
+            background: var(--ocean-gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+        }
+
+        .contact-cta-hero {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--ocean-deep);
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            color: var(--medium-gray);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 18px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            min-width: 220px;
+            justify-content: center;
+        }
+
+        .cta-primary {
+            background: var(--ocean-gradient);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(74, 144, 226, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(74, 144, 226, 0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--ocean-blue);
+            border: 2px solid var(--ocean-blue);
+        }
+
+        .cta-secondary:hover {
+            background: var(--ocean-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .cta-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item i {
+            width: 50px;
+            height: 50px;
+            background: var(--ocean-gradient);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-item span {
+            font-weight: 500;
+            color: var(--ocean-deep);
+            font-size: 1rem;
+        }
+
+        .contact-form {
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--ocean-blue);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--ocean-light);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #adb5bd;
+            text-decoration: none;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--ocean-light);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--ocean-blue);
+            color: var(--white);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--ocean-light);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #495057;
+            padding-top: 30px;
+            text-align: center;
+            color: #adb5bd;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-scroll {
+                gap: 20px;
+                padding: 40px 0 20px;
+            }
+
+            .tool-item {
+                min-width: 140px;
+                padding: 25px 15px;
+            }
+
+            .tool-item .tool-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .tool-item .tool-logo img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .tool-item h3 {
+                font-size: 1rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-steps,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+
+            .cta-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-content p {
+                font-size: 1.1rem;
+            }
+
+            .cta-primary, .cta-secondary {
+                min-width: 100%;
+                padding: 15px 30px;
+            }
+
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <img src="assets/images/mytrya-logo.png" alt="Mytrya AI Logo">
+                    MYTRYA AI
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Journey</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="https://cal.com/suraj-malla-srj-5ybdyg/60min" target="_blank" class="cta-button">Book Consultation</a>
+                <button class="mobile-menu-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transform Your Business with Intelligent Automation</h1>
+                    <p>Mytrya AI delivers custom AI solutions that streamline operations, reduce costs, and accelerate growth for forward-thinking businesses.</p>
+                    <div class="hero-buttons">
+                        <a href="https://cal.com/suraj-malla-srj-5ybdyg/60min" target="_blank" class="btn-primary">Book Free Consultation</a>
+                        <a href="#services" class="btn-secondary">View Our Journey</a>
+                    </div>
+                </div>
+                <div class="hero-visual" id="heroSlider">
+                    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80');"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80');"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2376&q=80');"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2339&q=80');"></div>
+                    <div class="slider-nav">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Tools Showcase Section -->
+    <section class="tools-showcase" id="tools">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powered by Industry-Leading AI Tools</h2>
+                <p>We leverage the best automation platforms and AI technologies to deliver robust, scalable solutions for your business.</p>
+            </div>
+            <div class="tools-scroll" id="toolsScroll">
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://n8n.io/favicon.ico" alt="n8n Logo">
+                    </div>
+                    <h3>n8n</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://openai.com/favicon.ico" alt="OpenAI Logo">
+                    </div>
+                    <h3>OpenAI</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://claude.ai/favicon.ico" alt="Claude Logo">
+                    </div>
+                    <h3>Claude AI</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://www.make.com/favicon.ico" alt="Make Logo">
+                    </div>
+                    <h3>Make</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://airtable.com/favicon.ico" alt="Airtable Logo">
+                    </div>
+                    <h3>Airtable</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://www.hubspot.com/favicon.ico" alt="HubSpot Logo">
+                    </div>
+                    <h3>HubSpot</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://www.zoho.com/favicon.ico" alt="Zoho Logo">
+                    </div>
+                    <h3>Zoho</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://slack.com/favicon.ico" alt="Slack Logo">
+                    </div>
+                    <h3>Slack</h3>
+                </div>
+                <!-- Duplicate items for seamless loop -->
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://n8n.io/favicon.ico" alt="n8n Logo">
+                    </div>
+                    <h3>n8n</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://openai.com/favicon.ico" alt="OpenAI Logo">
+                    </div>
+                    <h3>OpenAI</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://claude.ai/favicon.ico" alt="Claude Logo">
+                    </div>
+                    <h3>Claude AI</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://www.make.com/favicon.ico" alt="Make Logo">
+                    </div>
+                    <h3>Make</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://airtable.com/favicon.ico" alt="Airtable Logo">
+                    </div>
+                    <h3>Airtable</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://www.hubspot.com/favicon.ico" alt="HubSpot Logo">
+                    </div>
+                    <h3>HubSpot</h3>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-logo">
+                        <img src="https://www.zoho.com/favicon.ico" alt="Zoho Logo">
+                    </div>
+                    <h3>Zoho</h3>
+                </div>
+            </div>
+            <div class="tools-cta">
+                <p>These are just a few of the 500+ tools and platforms we integrate with.</p>
+                <a href="https://cal.com/suraj-malla-srj-5ybdyg/60min" target="_blank" class="btn-secondary">
+                    <i class="fas fa-comments"></i>
+                    Discuss Your Tool Stack
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>200+</h3>
+                    <p>Successful Implementations</p>
+                </div>
+                <div class="stat-item">
+                    <h3>85%</h3>
+                    <p>Process Efficiency Improvement</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30</h3>
+                    <p>Days to Implementation</p>
+                </div>
+                <div class="stat-item">
+                    <h3>97%</h3>
+                    <p>Client Satisfaction Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Journey With Us</h2>
+                <p>From initial consultation to full implementation, we guide you through every step of your AI transformation journey.</p>
+            </div>
+            <div class="journey-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Strategy</h3>
+                    <p>Our AI consultants work closely with your team to understand your vision, assess current processes, identify inefficiencies, and define the optimal AI solutions for your specific goals.</p>
+                    <ul class="step-features">
+                        <li>Comprehensive business analysis</li>
+                        <li>Process mapping and optimization opportunities</li>
+                        <li>ROI assessment and feasibility study</li>
+                        <li>Custom AI strategy roadmap</li>
+                    </ul>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Design & Development</h3>
+                    <p>Our dedicated team of AI experts designs, builds, and rigorously tests custom automation solutions engineered to scale with your business and deliver measurable results.</p>
+                    <ul class="step-features">
+                        <li>Custom AI model development</li>
+                        <li>Scalable architecture design</li>
+                        <li>Comprehensive testing and validation</li>
+                        <li>Security and compliance integration</li>
+                    </ul>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Implementation & Success</h3>
+                    <p>We seamlessly implement your AI systems, provide comprehensive training to your team, and ensure smooth integration with existing workflows—delivering fully functional solutions ready to transform your operations.</p>
+                    <ul class="step-features">
+                        <li>Seamless system integration</li>
+                        <li>Team training and change management</li>
+                        <li>Performance monitoring and optimization</li>
+                        <li>Ongoing support and maintenance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+<!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about our AI automation process and services.</p>
+            </div>
+            <div class="faq-content">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What kinds of businesses do you work with?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We work with service-based businesses, professional services, healthcare providers, financial institutions, e-commerce companies, and manufacturing firms. From small businesses to enterprise-level organizations, we help any company looking to streamline operations and boost efficiency through intelligent automation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does implementation usually take?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Simple automation projects typically take 2-4 weeks, while comprehensive AI transformations range from 6-12 weeks. We work in phases to deliver quick wins early, so you'll start seeing benefits within the first 30 days while we complete the full implementation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Who owns the AI that you build for customers?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You own 100% of the AI solutions we build for your business. All custom code, configurations, and data models become your intellectual property. We provide complete documentation and can train your team to manage the systems independently if desired.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How does your pricing work?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer flexible pricing models: project-based fees for specific automations, monthly retainers for ongoing optimization, and success-based pricing tied to measurable results. Every engagement starts with a free assessment to provide transparent cost estimates based on your specific needs and expected ROI.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer courses or free training?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We provide comprehensive training for your team as part of every implementation. We also offer workshops and educational content to help businesses understand AI opportunities. Follow our YouTube channel and LinkedIn for free resources, tips, and industry insights.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What industries do you specialize in?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We have deep expertise in healthcare, professional services, finance, e-commerce, manufacturing, and SaaS companies. However, our automation frameworks are adaptable across industries. We focus on common business processes like data entry, customer service, reporting, and workflow optimization that exist in most sectors.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you build solutions from scratch or leverage tools?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We use a hybrid approach - combining proven tools and platforms with custom development as needed. This gives you faster implementation, lower costs, and enterprise-grade reliability while ensuring solutions are perfectly tailored to your unique processes and requirements.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I know if AI is a good fit for my business?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If your business handles repetitive tasks, processes large amounts of data, or struggles with manual workflows, AI automation can help. The best candidates have clear processes that consume significant time and resources. Our free assessment will quickly identify your biggest automation opportunities and potential ROI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Choose Mytrya AI</h2>
+                    <p>Mytrya AI was founded on the belief that every business deserves access to cutting-edge AI technology. We bridge the gap between complex AI capabilities and practical business solutions, making automation accessible and profitable for companies of all sizes.</p>
+                    <p>Our team of AI specialists, business analysts, and integration experts work collaboratively to deliver measurable results that transform how you operate.</p>
+                </div>
+                <div class="about-visual" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2515&q=80'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-cta-hero">
+                <div class="cta-content">
+                    <h2>Start Your AI Transformation Today</h2>
+                    <p>Ready to unlock your business potential? Let's discuss how AI automation can solve your biggest operational challenges and drive measurable growth.</p>
+                    <div class="cta-buttons">
+                        <a href="https://cal.com/suraj-malla-srj-5ybdyg/60min" target="_blank" class="btn-primary cta-primary">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Free Strategy Session
+                        </a>
+                        <a href="mailto:malla.srj@mytrya.com" class="btn-secondary cta-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Send Us a Message
+                        </a>
+                    </div>
+                </div>
+                <div class="cta-features">
+                    <div class="feature-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Free 60-minute consultation</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Custom ROI analysis</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Immediate actionable insights</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Mytrya AI</h3>
+                    <p>Transforming businesses through intelligent automation and AI solutions. Join hundreds of companies already benefiting from our expertise.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/malla-srj/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.youtube.com/channel/UCkWK_1eUO4eQPIVNudeELdg" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Journey</h3>
+                    <a href="#services">Discovery & Strategy</a>
+                    <a href="#services">Design & Development</a>
+                    <a href="#services">Implementation & Success</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <a href="#about">About Us</a>
+                    <a href="#tools">Our Tools</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#">Case Studies</a>
+                    <a href="#">Blog</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mytrya AI. All rights reserved. | Empowering businesses through intelligent automation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+            
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navLinks = document.getElementById('navLinks');
+                    const mobileToggle = document.getElementById('mobileToggle');
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        const icon = mobileToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        // Auto-scroll tools showcase
+        const toolsScroll = document.getElementById('toolsScroll');
+        if (toolsScroll) {
+            let scrollAmount = 0;
+            const scrollSpeed = 0.5;
+            let isPaused = false;
+            let animationId;
+            
+            function autoScroll() {
+                if (!isPaused) {
+                    scrollAmount += scrollSpeed;
+                    toolsScroll.scrollLeft = scrollAmount;
+                    
+                    // Reset when reaching the end (accounting for duplicated items)
+                    if (scrollAmount >= toolsScroll.scrollWidth / 2) {
+                        scrollAmount = 0;
+                        toolsScroll.scrollLeft = 0;
+                    }
+                }
+                animationId = requestAnimationFrame(autoScroll);
+            }
+            
+            // Start auto-scroll
+            animationId = requestAnimationFrame(autoScroll);
+            
+            // Pause on hover
+            toolsScroll.addEventListener('mouseenter', () => {
+                isPaused = true;
+            });
+            
+            // Resume on mouse leave
+            toolsScroll.addEventListener('mouseleave', () => {
+                isPaused = false;
+            });
+            
+            // Pause on touch/scroll
+            toolsScroll.addEventListener('touchstart', () => {
+                isPaused = true;
+            });
+            
+            toolsScroll.addEventListener('touchend', () => {
+                setTimeout(() => {
+                    isPaused = false;
+                }, 2000); // Resume after 2 seconds
+            });
+        }
+
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentNode;
+                const wasActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't already active
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Add fade-in animation to elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe elements for animation
+        document.querySelectorAll('.step-card, .pricing-card, .about-feature, .stat-item').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Add some interactive elements
+        document.querySelectorAll('.step-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Animate stats on scroll
+        let statsAnimated = false;
+        
+        const animateStats = () => {
+            if (statsAnimated) return;
+            
+            const statNumbers = document.querySelectorAll('.stat-item h3');
+            statNumbers.forEach((stat) => {
+                const finalValue = stat.textContent;
+                const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
+                
+                if (!isNaN(numericValue)) {
+                    let current = 0;
+                    const increment = numericValue / 50;
+                    const suffix = finalValue.replace(/[\d]/g, '');
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= numericValue) {
+                            current = numericValue;
+                            clearInterval(timer);
+                        }
+                        stat.textContent = Math.floor(current) + suffix;
+                    }, 30);
+                }
+            });
+            
+            statsAnimated = true;
+        };
+
+        const statsSection = document.querySelector('.stats');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Hero Image Slider - Simple approach
+        let currentSlideIndex = 0;
+        
+        function initSlider() {
+            const slides = document.querySelectorAll('#heroSlider .slide');
+            const dots = document.querySelectorAll('#heroSlider .dot');
+            
+            console.log('Found slides:', slides.length, 'dots:', dots.length);
+            
+            if (slides.length === 0) return;
+            
+            function showSlideAtIndex(index) {
+                slides.forEach(s => s.classList.remove('active'));
+                dots.forEach(d => d.classList.remove('active'));
+                
+                if (slides[index]) slides[index].classList.add('active');
+                if (dots[index]) dots[index].classList.add('active');
+            }
+            
+            // Auto advance
+            function autoAdvance() {
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                showSlideAtIndex(currentSlideIndex);
+            }
+            
+            // Manual control
+            window.currentSlide = function(n) {
+                currentSlideIndex = n - 1;
+                showSlideAtIndex(currentSlideIndex);
+            }
+            
+            // Start
+            showSlideAtIndex(currentSlideIndex);
+            setInterval(autoAdvance, 3000);
+        }
+        
+        // Initialize slider when page loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSlider);
+        } else {
+            initSlider();
+        }
+    </script>
+</body>
+</html>
