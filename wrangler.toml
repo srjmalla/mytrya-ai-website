@@ -1,0 +1,11 @@
+name = "mytrya-ai-website"
+compatibility_date = "2025-08-18"
+
+[env.production]
+compatibility_date = "2025-08-18"
+
+[[env.production.routes]]
+pattern = "*"
+
+[assets]
+directory = "."
