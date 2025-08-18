@@ -1017,9 +1017,10 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
             margin-bottom: 40px;
+            align-items: start;
         }
 
         .footer-section h3 {
@@ -1182,6 +1183,20 @@
             .cta-features {
                 grid-template-columns: 1fr;
             }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1229,6 +1244,18 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 10px;
+            }
+
+            .footer-content {
+                gap: 30px;
+            }
+
+            .footer-section h3 {
+                font-size: 1.1rem;
+            }
+
+            .footer-bottom {
+                font-size: 0.9rem;
             }
         }
     </style>
