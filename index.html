@@ -1006,7 +1006,7 @@
         }
 
         .faq-item.active .faq-answer {
-            max-height: 200px;
+            max-height: 300px;
             padding: 25px 30px;
         }
 
@@ -1528,6 +1528,27 @@
                 width: 100%;
                 max-width: 280px;
                 justify-content: center;
+            }
+
+            /* FAQ Mobile Fixes */
+            .faq-item.active .faq-answer {
+                max-height: none;
+                padding: 20px 15px;
+            }
+
+            .faq-question {
+                padding: 20px 15px;
+            }
+
+            .faq-question h3 {
+                font-size: 1rem;
+                line-height: 1.4;
+                padding-right: 30px;
+            }
+
+            .faq-answer p {
+                font-size: 0.95rem;
+                line-height: 1.6;
             }
         }
     </style>
