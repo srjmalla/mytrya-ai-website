@@ -833,7 +833,7 @@
 
         /* Services Section */
         .services {
-            padding: var(--space-24) 0;
+            padding: var(--space-16) 0;
             background: var(--light-gray);
         }
 
@@ -1403,7 +1403,7 @@
 
         /* Testimonials Section */
         .testimonials {
-            padding: var(--space-24) 0;
+            padding: var(--space-16) 0;
             background: var(--light-gray);
         }
         
@@ -1515,7 +1515,7 @@
         
         /* Trust Badges Section */
         .trust-badges {
-            padding: var(--space-20) 0;
+            padding: var(--space-12) 0;
             background: var(--white);
         }
         
@@ -2168,6 +2168,38 @@
             animation: shimmer 2s infinite;
         }
 
+        /* Global Mobile Optimizations */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        /* Prevent horizontal scroll on mobile */
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Better touch targets for mobile */
+        @media (max-width: 768px) {
+            .btn-primary,
+            .btn-secondary,
+            .cta-button {
+                min-height: 44px;
+                padding: var(--space-3) var(--space-6);
+            }
+            
+            .nav-links a {
+                padding: var(--space-4) var(--space-6);
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+        }
+        
         /* Responsive Design System */
         
         /* Large Tablets and Small Desktops */
@@ -2177,7 +2209,7 @@
             }
             
             .hero {
-                padding: var(--space-24) 0 var(--space-20);
+                padding: var(--space-20) 0 var(--space-16);
             }
             
             .hero-content {
@@ -2224,7 +2256,7 @@
             }
 
             .hero {
-                padding: var(--space-20) 0 var(--space-16);
+                padding: 120px 0 var(--space-16);
             }
             
             .hero-text h1 {
@@ -2391,7 +2423,7 @@
             }
 
             .hero {
-                padding: var(--space-16) 0 var(--space-12);
+                padding: 100px 0 var(--space-12);
                 min-height: 80vh;
             }
 
