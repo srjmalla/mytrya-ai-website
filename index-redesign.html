@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mytrya AI - Custom AI Automation Solutions | 85% Efficiency Gains | 30-Day Implementation</title>
+    <meta name="description" content="Transform your business with Mytrya AI's custom automation solutions. 85% efficiency improvement, 30-day turnaround. Expert AI consultancy for n8n, Zapier, OpenAI integration. Free consultation available.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/mytrya-logo.png">
+
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Dark Theme Colors */
+            --black: #0a0a0a;
+            --dark-900: #121212;
+            --dark-800: #1a1a1a;
+            --dark-700: #2a2a2a;
+            --dark-600: #3a3a3a;
+            --white: #ffffff;
+            --off-white: #f5f5f5;
+
+            /* Accent Colors */
+            --gold: #FFB800;
+            --gold-light: #FFC933;
+            --coral: #FF6B6B;
+            --mint: #4ECDC4;
+            --lavender: #A78BFA;
+
+            /* Typography */
+            --font-main: 'Epilogue', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #FFFFFF;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar.scrolled {
+            background: #FFFFFF;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .logo-image-container {
+            width: 70px;
+            height: 70px;
+            position: relative;
+            background: transparent;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-700);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .cta-nav {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.75rem 1.75rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-nav:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(255, 184, 0, 0.3);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--black);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 2rem 80px;
+            background: var(--black);
+            position: relative;
+        }
+
+        .hero-bg-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 184, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(167, 139, 250, 0.08) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .hero-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(3rem, 6vw, 6rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            color: var(--white);
+            letter-spacing: -0.03em;
+        }
+
+        .hero-text h1 .accent {
+            color: var(--gold);
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.35rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            font-weight: 400;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+            padding: 1.25rem 3rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(255, 184, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1.25rem 3rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: 2px solid var(--dark-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Stats Counter */
+        .stats-counter {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            border-top: 1px solid var(--dark-600);
+            padding-top: 3rem;
+        }
+
+        .stat-box {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-mono);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        /* Hero Visual - Animated Network */
+        .hero-visual {
+            position: relative;
+            height: 600px;
+        }
+
+        .network-canvas {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--dark-600);
+            background: var(--dark-900);
+            overflow: hidden;
+        }
+
+        .network-canvas::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                repeating-linear-gradient(0deg, transparent, transparent 39px, var(--dark-600) 39px, var(--dark-600) 40px),
+                repeating-linear-gradient(90deg, transparent, transparent 39px, var(--dark-600) 39px, var(--dark-600) 40px);
+            opacity: 0.3;
+        }
+
+        .network-node {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--dark-800);
+            border: 2px solid var(--gold);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-align: center;
+            animation: nodePulse 3s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .network-node i {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .node-1 { top: 15%; left: 10%; animation-delay: 0s; }
+        .node-2 { top: 15%; right: 10%; animation-delay: 0.5s; }
+        .node-3 { top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 1s; background: var(--gold); color: var(--black); border-color: var(--gold); }
+        .node-4 { bottom: 15%; left: 10%; animation-delay: 1.5s; }
+        .node-5 { bottom: 15%; right: 10%; animation-delay: 2s; }
+
+        @keyframes nodePulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 184, 0, 0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(255, 184, 0, 0); }
+        }
+
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: var(--gold);
+            opacity: 0.3;
+            transform-origin: left center;
+            z-index: 1;
+        }
+
+        .line-1 { top: 20%; left: 15%; width: 300px; transform: rotate(5deg); }
+        .line-2 { top: 20%; right: 15%; width: 280px; transform: rotate(-5deg); }
+        .line-3 { bottom: 20%; left: 15%; width: 320px; transform: rotate(-8deg); }
+        .line-4 { bottom: 20%; right: 15%; width: 290px; transform: rotate(8deg); }
+
+        .data-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            z-index: 3;
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        .particle-1 {
+            top: 20%;
+            left: 15%;
+            animation: flowRight1 3s ease-in-out infinite;
+        }
+
+        .particle-2 {
+            top: 20%;
+            right: 15%;
+            animation: flowRight2 3s ease-in-out infinite 0.5s;
+        }
+
+        .particle-3 {
+            bottom: 20%;
+            left: 15%;
+            animation: flowRight3 3s ease-in-out infinite 1s;
+        }
+
+        .particle-4 {
+            bottom: 20%;
+            right: 15%;
+            animation: flowRight4 3s ease-in-out infinite 1.5s;
+        }
+
+        @keyframes flowRight1 {
+            0%, 100% { transform: translateX(0) translateY(0); opacity: 0; }
+            10% { opacity: 1; }
+            50% { transform: translateX(150px) translateY(15px); opacity: 1; }
+            90% { opacity: 0; }
+        }
+
+        @keyframes flowRight2 {
+            0%, 100% { transform: translateX(0) translateY(0); opacity: 0; }
+            10% { opacity: 1; }
+            50% { transform: translateX(-140px) translateY(-15px); opacity: 1; }
+            90% { opacity: 0; }
+        }
+
+        @keyframes flowRight3 {
+            0%, 100% { transform: translateX(0) translateY(0); opacity: 0; }
+            10% { opacity: 1; }
+            50% { transform: translateX(160px) translateY(-25px); opacity: 1; }
+            90% { opacity: 0; }
+        }
+
+        @keyframes flowRight4 {
+            0%, 100% { transform: translateX(0) translateY(0); opacity: 0; }
+            10% { opacity: 1; }
+            50% { transform: translateX(-145px) translateY(25px); opacity: 1; }
+            90% { opacity: 0; }
+        }
+
+        .network-label {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(255, 184, 0, 0.1);
+            border: 1px solid var(--gold);
+            padding: 1rem 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--gold);
+            color: var(--black);
+            padding: 1.5rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 4;
+            box-shadow: 0 10px 40px rgba(255, 184, 0, 0.4);
+        }
+
+        /* Tools Section */
+        .tools-section {
+            padding: 120px 2rem;
+            background: var(--dark-900);
+            border-top: 1px solid var(--dark-600);
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 4vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            max-width: 800px;
+        }
+
+        .section-header .subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 700px;
+            margin-bottom: 4rem;
+        }
+
+        .tools-scroll-container {
+            overflow: hidden;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .tools-scroll-container::before,
+        .tools-scroll-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .tools-scroll-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--dark-900) 0%, transparent 100%);
+        }
+
+        .tools-scroll-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--dark-900) 0%, transparent 100%);
+        }
+
+        .tools-grid {
+            display: flex;
+            gap: 2rem;
+            animation: scrollTools 30s linear infinite;
+            width: fit-content;
+        }
+
+        .tools-grid:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollTools {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .tool-card {
+            background: var(--white);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            min-width: 160px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+            border-radius: 12px;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--gold);
+            transition: height 0.3s ease;
+            z-index: 0;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .tool-card:hover::before {
+            height: 4px;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--gold);
+        }
+
+        .tool-logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tool-logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .tool-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tools-footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--dark-600);
+        }
+
+        .tools-footer p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2rem;
+        }
+
+        /* Journey Section - Card Grid Design */
+        .journey-section {
+            padding: 120px 2rem;
+            background: var(--black);
+            border-top: 1px solid var(--dark-600);
+            position: relative;
+        }
+
+        .journey-grid {
+            margin-top: 5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        /* Connecting Lines Between Cards */
+        .journey-connector {
+            position: absolute;
+            width: 2px;
+            height: 60px;
+            background: var(--gold);
+            opacity: 0.3;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .connector-1 { top: calc(50% - 30px); }
+        .connector-2 { top: calc(100% + 1rem); left: 25%; }
+        .connector-3 { top: calc(100% + 1rem); left: 75%; }
+
+        .journey-card {
+            background: var(--dark-900);
+            border: 2px solid var(--dark-600);
+            padding: 3.5rem 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .journey-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .journey-card:hover::before {
+            opacity: 1;
+        }
+
+        .journey-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(255, 184, 0, 0.15);
+        }
+
+        /* Large Decorative Number */
+        .journey-card-number {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-family: var(--font-mono);
+            font-size: 10rem;
+            font-weight: 900;
+            color: var(--gold);
+            opacity: 0.08;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* Small Badge Number */
+        .journey-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 0.5rem 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .journey-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .journey-card h3 {
+            font-size: 1.85rem;
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+            color: var(--white);
+            line-height: 1.3;
+        }
+
+        .journey-card p {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .journey-features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .journey-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--dark-600);
+        }
+
+        .journey-feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .journey-feature-item i {
+            color: var(--gold);
+            font-size: 0.75rem;
+            min-width: 15px;
+        }
+
+        /* Special styling for first and last cards */
+        .journey-card:first-child .journey-badge {
+            background: var(--mint);
+        }
+
+        .journey-card:last-child .journey-badge {
+            background: var(--coral);
+        }
+
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 120px 2rem;
+            background: var(--black);
+            border-top: 1px solid var(--dark-600);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+        .testimonial-card {
+            background: var(--dark-900);
+            border: 1px solid var(--dark-600);
+            padding: 3rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.3;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--dark-600);
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            font-family: var(--font-mono);
+        }
+
+        .author-details h4 {
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-details p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 2rem;
+            background: var(--gold);
+            text-align: center;
+            color: var(--black);
+        }
+
+        .cta-content h2 {
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-content p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .cta-button-large {
+            background: var(--black);
+            color: var(--gold);
+            padding: 1.5rem 4rem;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .cta-button-large:hover {
+            background: var(--dark-900);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-900);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 80px 2rem 30px;
+            border-top: 1px solid var(--dark-600);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 900;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--dark-800);
+            border: 1px solid var(--dark-600);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--black);
+            border-color: var(--gold);
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            padding-top: 3rem;
+            border-top: 1px solid var(--dark-600);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .stats-counter {
+                gap: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .journey-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-card-number {
+                font-size: 8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .logo-image-container {
+                width: 65px;
+                height: 65px;
+            }
+
+            .hero {
+                padding: 120px 1.5rem 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stats-counter {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .tools-scroll-container::before,
+            .tools-scroll-container::after {
+                width: 50px;
+            }
+
+            .tool-card {
+                min-width: 150px;
+                padding: 2rem 1.5rem;
+            }
+
+            .tools-grid {
+                animation-duration: 20s;
+            }
+
+            .journey-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .journey-card {
+                min-height: 350px;
+                padding: 3rem 2.5rem;
+            }
+
+            .journey-card-number {
+                font-size: 7rem;
+                top: -10px;
+                right: 10px;
+            }
+
+            .journey-connector {
+                display: none;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-badge {
+                bottom: -15px;
+                right: -15px;
+                padding: 1rem;
+                font-size: 0.75rem;
+            }
+
+            .hero-visual {
+                height: 400px;
+            }
+
+            .network-node {
+                width: 60px;
+                height: 60px;
+                font-size: 0.6rem;
+            }
+
+            .network-node i {
+                font-size: 1.2rem;
+            }
+
+            .connection-line {
+                display: none;
+            }
+
+            .data-particle {
+                display: none;
+            }
+
+            .network-label {
+                font-size: 0.7rem;
+                padding: 0.75rem 1rem;
+                bottom: 20px;
+                left: 20px;
+            }
+        }
+
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-image-container">
+                    <img src="assets/images/mytrya-logo.png" alt="Mytrya AI Logo">
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#journey">Process</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+            </ul>
+            <a href="https://cal.com/suraj-malla-srj-5ybdyg/60min" target="_blank" class="cta-nav">Book Now</a>
+            <button class="mobile-menu-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-label">AI Automation Experts</div>
+                    <h1>
+                        Transform Your Business with <span class="accent">AI</span>
+                    </h1>
+                    <p class="subtitle">
+                        Custom automation solutions that streamline operations, reduce costs, and accelerate growth for forward-thinking businesses.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="https://cal.com/suraj-malla-srj-5ybdyg/60min" target="_blank" class="btn-primary">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Free Consultation
+                        </a>
+                        <a href="#journey" class="btn-secondary">
+                            <i class="fas fa-arrow-down"></i>
+                            See Our Process
+                        </a>
+                    </div>
+
+                    <div class="stats-counter">
+                        <div class="stat-box">
+                            <div class="stat-number">85%</div>
+                            <div class="stat-label">Efficiency Gains</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">30</div>
+                            <div class="stat-label">Day Implementation</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Tool Integrations</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="network-canvas">
+                        <!-- Connection Lines -->
+                        <div class="connection-line line-1"></div>
+                        <div class="connection-line line-2"></div>
+                        <div class="connection-line line-3"></div>
+                        <div class="connection-line line-4"></div>
+
+                        <!-- Animated Data Particles -->
+                        <div class="data-particle particle-1"></div>
+                        <div class="data-particle particle-2"></div>
+                        <div class="data-particle particle-3"></div>
+                        <div class="data-particle particle-4"></div>
+
+                        <!-- Network Nodes -->
+                        <div class="network-node node-1">
+                            <i class="fas fa-database"></i>
+                            <span>Data Input</span>
+                        </div>
+
+                        <div class="network-node node-2">
+                            <i class="fas fa-cloud"></i>
+                            <span>Cloud API</span>
+                        </div>
+
+                        <div class="network-node node-3">
+                            <i class="fas fa-brain"></i>
+                            <span>AI Core</span>
+                        </div>
+
+                        <div class="network-node node-4">
+                            <i class="fas fa-cog"></i>
+                            <span>Automation</span>
+                        </div>
+
+                        <div class="network-node node-5">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </div>
+
+                        <!-- Network Label -->
+                        <div class="network-label">
+                            Live System Architecture
+                        </div>
+                    </div>
+                    <div class="hero-badge">
+                        30 Days<br>to Results
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools-section" id="tools">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Our Technology Stack</div>
+                <h2>Powered by Industry Leaders</h2>
+                <p class="subtitle">
+                    We leverage cutting-edge automation platforms and AI technologies to deliver robust, scalable solutions tailored to your business.
+                </p>
+            </div>
+
+            <div class="tools-scroll-container">
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://n8n.io/favicon.ico" alt="n8n">
+                        </div>
+                        <div class="tool-name">n8n</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://openai.com/favicon.ico" alt="OpenAI">
+                        </div>
+                        <div class="tool-name">OpenAI</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://www.anthropic.com/images/icons/apple-touch-icon.png" alt="Claude AI">
+                        </div>
+                        <div class="tool-name">Claude AI</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://www.make.com/favicon.ico" alt="Make">
+                        </div>
+                        <div class="tool-name">Make</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://airtable.com/images/favicon/baymax/apple-touch-icon.png" alt="Airtable">
+                        </div>
+                        <div class="tool-name">Airtable</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png" alt="HubSpot">
+                        </div>
+                        <div class="tool-name">HubSpot</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://www.zoho.com/favicon.ico" alt="Zoho">
+                        </div>
+                        <div class="tool-name">Zoho</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://a.slack-edge.com/80588/marketing/img/icons/icon_slack_hash_colored.png" alt="Slack">
+                        </div>
+                        <div class="tool-name">Slack</div>
+                    </div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://n8n.io/favicon.ico" alt="n8n">
+                        </div>
+                        <div class="tool-name">n8n</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://openai.com/favicon.ico" alt="OpenAI">
+                        </div>
+                        <div class="tool-name">OpenAI</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://www.anthropic.com/images/icons/apple-touch-icon.png" alt="Claude AI">
+                        </div>
+                        <div class="tool-name">Claude AI</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://www.make.com/favicon.ico" alt="Make">
+                        </div>
+                        <div class="tool-name">Make</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://airtable.com/images/favicon/baymax/apple-touch-icon.png" alt="Airtable">
+                        </div>
+                        <div class="tool-name">Airtable</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png" alt="HubSpot">
+                        </div>
+                        <div class="tool-name">HubSpot</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://www.zoho.com/favicon.ico" alt="Zoho">
+                        </div>
+                        <div class="tool-name">Zoho</div>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-logo">
+                            <img src="https://a.slack-edge.com/80588/marketing/img/icons/icon_slack_hash_colored.png" alt="Slack">
+                        </div>
+                        <div class="tool-name">Slack</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tools-footer">
+                <p>We integrate with 500+ tools and platforms across AI, automation, CRM, communication, and development workflows.</p>
+                <a href="https://cal.com/suraj-malla-srj-5ybdyg/60min" target="_blank" class="btn-secondary">
+                    <i class="fas fa-comments"></i>
+                    Discuss Your Stack
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey-section" id="journey">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-label">Our Process</div>
+                <h2>From Discovery to Deployment</h2>
+                <p class="subtitle">
+                    A proven methodology that transforms your business operations in just 30 days.
+                </p>
+            </div>
+
+            <div class="journey-grid">
+                <div class="journey-card reveal">
+                    <div class="journey-card-number">01</div>
+                    <div class="journey-card-content">
+                        <div class="journey-badge">Step 01</div>
+                        <h3>Discovery & Assessment</h3>
+                        <p>We analyze your current workflows and identify high-impact automation opportunities.</p>
+                        <ul class="journey-features-list">
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Process mapping</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Pain point identification</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>ROI calculation</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Tool stack review</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="journey-card reveal">
+                    <div class="journey-card-number">02</div>
+                    <div class="journey-card-content">
+                        <div class="journey-badge">Step 02</div>
+                        <h3>Strategy & Design</h3>
+                        <p>Custom automation blueprint tailored to your specific business requirements.</p>
+                        <ul class="journey-features-list">
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Solution architecture</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Integration planning</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Timeline creation</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Success metrics</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="journey-card reveal">
+                    <div class="journey-card-number">03</div>
+                    <div class="journey-card-content">
+                        <div class="journey-badge">Step 03</div>
+                        <h3>Build & Integration</h3>
+                        <p>Expert implementation of your AI automation systems with rigorous testing.</p>
+                        <ul class="journey-features-list">
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Workflow automation</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>AI model integration</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Testing & QA</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Security compliance</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="journey-card reveal">
+                    <div class="journey-card-number">04</div>
+                    <div class="journey-card-content">
+                        <div class="journey-badge">Step 04</div>
+                        <h3>Launch & Optimization</h3>
+                        <p>Go live with ongoing support and continuous improvement.</p>
+                        <ul class="journey-features-list">
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Team training</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Performance monitoring</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Continuous optimization</span>
+                            </li>
+                            <li class="journey-feature-item">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>Dedicated support</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-label">Client Success Stories</div>
+                <h2>What Our Clients Say</h2>
+                <p class="subtitle">
+                    Real results from businesses that transformed with AI automation.
+                </p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card reveal">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        Mytrya AI transformed our customer service operations. We've seen an 85% reduction in response time and our team can now focus on high-value interactions.
+                    </p>
+                    <div class="testimonial-author-info">
+                        <div class="author-avatar">SJ</div>
+                        <div class="author-details">
+                            <h4>Sarah Johnson</h4>
+                            <p>COO, TechServe Inc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        The ROI was immediate. Within 30 days, we automated 70% of our manual data entry tasks. The team's expertise and professionalism exceeded our expectations.
+                    </p>
+                    <div class="testimonial-author-info">
+                        <div class="author-avatar">MC</div>
+                        <div class="author-details">
+                            <h4>Michael Chen</h4>
+                            <p>Operations Director, DataFlow</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        Working with Mytrya AI was seamless. They understood our unique challenges and delivered a custom solution that integrated perfectly with our existing tools.
+                    </p>
+                    <div class="testimonial-author-info">
+                        <div class="author-avatar">ER</div>
+                        <div class="author-details">
+                            <h4>Emily Rodriguez</h4>
+                            <p>VP of Technology, InnovateCo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content reveal">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Book a free consultation and discover your automation potential.</p>
+            <a href="https://cal.com/suraj-malla-srj-5ybdyg/60min" target="_blank" class="cta-button-large">
+                Schedule Free Consultation
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>MYTRYA AI</h3>
+                    <p>Custom AI automation solutions that streamline operations and accelerate business growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/malla-srj/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.youtube.com/channel/UCkWK_1eUO4eQPIVNudeELdg" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#tools">Tools</a></li>
+                        <li><a href="#journey">Process</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">AI Automation</a></li>
+                        <li><a href="#">Workflow Integration</a></li>
+                        <li><a href="#">Custom Development</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:malla.srj@mytrya.com">malla.srj@mytrya.com</a></li>
+                        <li><a href="https://cal.com/suraj-malla-srj-5ybdyg/60min" target="_blank">Book Consultation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mytrya AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile menu
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+</body>
+</html>
